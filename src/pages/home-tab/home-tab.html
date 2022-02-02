@@ -1,0 +1,68 @@
+<ion-content>
+
+  <div class="nb-card">
+    <div class="icon-container hidden-sm-down">
+        <div class="icon">
+          <ion-icon name="bookmarks"></ion-icon>
+        </div>
+    </div>
+    <div class="details">
+        <div class="title">
+          Total No Of Programs
+        </div>
+        <div class="values" *ngIf="allPrograms != undefined">
+          {{allPrograms.length}}
+        </div>
+    </div>
+  </div>
+
+  <div class="nb-card">
+    <div class="icon-container hidden-sm-down">
+        <div class="icon">
+          <ion-icon name="briefcase"></ion-icon>
+        </div>
+    </div>
+    <div class="details">
+        <div class="title">
+          Total No Of Franchise Enquiry
+        </div>
+        <div class="values" *ngIf="allFranchisees != undefined">
+          {{allFranchisees.length}}
+        </div>
+    </div>
+  </div>
+
+  <div class="nb-card">
+    <div class="icon-container hidden-sm-down">
+        <div class="icon">
+          <ion-icon name="walk"></ion-icon>
+        </div>
+    </div>
+    <div class="details">
+        <div class="title">
+          Total No Of Instructor Enquiry
+        </div>
+        <div class="values" *ngIf="allInstructor != undefined">
+          {{allInstructor.length}}
+        </div>
+    </div>
+  </div>
+
+  <div class="nb-card">
+    <div class="icon-container hidden-sm-down">
+        <div class="icon">
+          <ion-icon name="school"></ion-icon>
+        </div>
+    </div>
+    <div class="details">
+        <div class="title">
+          Total No Of Student Enquiry
+        </div>
+        <div class="values" *ngIf="allStudent != undefined">
+          {{allStudent.length}}
+        </div>
+    </div>
+  </div>
+
+
+</ion-content>

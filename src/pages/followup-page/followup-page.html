@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-buttons left>
+      <button ion-button icon-only menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>{{ 'Followup' | trannumetry }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-tabs tabsPlacement="top">
+    <ion-tab tabTitle="View" [root]="view" [rootParams]="franchiseEnquiry"></ion-tab>
+    <ion-tab tabTitle="Create" [root]="create" [rootParams]="franchiseEnquiry"></ion-tab>
+  </ion-tabs>
+
+</ion-content>

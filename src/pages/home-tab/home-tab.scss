@@ -1,0 +1,125 @@
+.nb-card {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    height: 10rem;
+    overflow: visible;
+    -webkit-box-shadow: 0 4px 10px 0 rgba(33,7,77,.5);
+    box-shadow: 0 4px 10px 0 rgba(33,7,77,.5);
+    font-size: 1rem;
+    line-height: 1.25;
+    background: #3d3780;
+    color: #d1d1ff;
+    margin: 1.5rem;
+    border-radius: .5rem;
+    -webkit-box-shadow: 0 8px 20px 0 rgba(40,37,89,.6);
+    box-shadow: 0 8px 20px 0 rgba(40,37,89,.6);
+    font-weight: 400;
+    border: 0 solid #3d3780;
+    scrollbar-face-color: #554db3;
+    scrollbar-track-color: #332e73;
+}
+
+.nb-card .icon-container {
+    border-radius: .5rem 0 0 .5rem;
+    height: 100%;
+    padding: 0;
+    background-image: -webkit-gradient(linear,left top,right top,from(#a054fe),to(#7a58ff));
+    background-image: linear-gradient(to right,#a054fe 0,#7a58ff 100%);
+    float: left;
+}
+
+.nb-card .icon {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    width: 7rem;
+    height: 100%;
+    font-size: 3.2rem;
+    border-radius: .5rem;
+    -webkit-transition: width .4s;
+    transition: width .4s ease;
+    -webkit-transform: trannumetry3d(0,0,0);
+    transform: trannumetry3d(0,0,0);
+    -webkit-transform-style: preserve-3d;
+    -webkit-backface-visibility: hidden;
+    float: left;
+}
+
+.nb-card .details {
+    float: left;
+    padding: 0 .5rem 0 1.15rem;
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    height: 100%;
+    border-left: 1px solid transparent;
+}
+
+.nb-card .title {
+    font-family: Exo;
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: #fff;
+}
+
+.nb-card .values {
+    font-size: 3rem;
+    font-weight: 600;
+    margin-top: .5rem;
+}
+
+.nb-card .actions {
+    padding: 0 1.15rem 0 .5rem;
+    float: right;
+}
+
+.nb-card[nbButton] {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    min-width: 11.4rem;
+    font-weight: 800;
+    font-size: 1.15rem;
+    text-shadow: 0 0 16px rgba(0,0,0,.16);
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    cursor: pointer;
+    padding: .875rem 1.75rem;
+    font-size: 1.125rem;
+    line-height: 1.25;
+    border-radius: .5rem;
+    color: #fff;
+    font-weight: 500;
+    font-family: Exo;
+    cursor: default;
+    padding: .75rem 1.5rem;
+    font-size: 1rem;
+    line-height: 1.25;
+    border-radius: .5rem;
+    background-color: #7659ff;
+}
+
+.nb-card .btn-a {
+    font-size: 4rem;
+    margin-top: 2.5rem
+}

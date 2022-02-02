@@ -1,0 +1,71 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>{{ 'Update Program' | trannumetry }}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="form">
+
+    <ion-list>
+      <ion-item>
+        <ion-label floating>{{ 'Program Name' | trannumetry }} <span class="mandatory-field"> * </span> </ion-label>
+        <ion-input type="text" placeholder="{{ 'Program Name' | trannumetry }}" formControlName="program_name"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>{{ 'Program Code:' | trannumetry }}</ion-label>
+        <ion-input type="text" placeholder="{{ 'Program Code' | trannumetry }}" formControlName="program_code" disabled="true"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>{{ 'No Of Sessions' | trannumetry }} <span class="mandatory-field"> * </span> </ion-label>
+        <ion-input type="number" placeholder="{{ 'No Of Sessions' | trannumetry }}" formControlName="no_of_sessions"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>{{ 'Months Per Level' | trannumetry }} <span class="mandatory-field"> * </span> </ion-label>
+        <ion-input type="number" placeholder="{{ 'Months Per Level' | trannumetry }}" formControlName="months_per_level"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>{{ 'Total Levels' | trannumetry }} <span class="mandatory-field"> * </span> </ion-label>
+        <ion-input type="number" placeholder="{{ 'Total Levels' | trannumetry }}" formControlName="total_levels"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label fixed>{{ 'Active:' | trannumetry }}</ion-label>
+        <ion-toggle color="primary" formControlName="active"></ion-toggle>
+      </ion-item>
+    </ion-list>
+
+  </form>
+
+  <ion-grid>
+    <ion-row>
+      <ion-title>{{ 'Registration Kit:' | trannumetry }}</ion-title>
+      <ion-buttons right>
+        <button ion-button icon-only (click)="addRegisterationKit()" color="success">
+          <ion-icon name="add"></ion-icon>
+        </button>
+      </ion-buttons>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid class="looping-reg">
+    <ion-row *ngFor="let item of registration_kit; let i = index">
+      <ion-input type="text" placeholder="Kit {{i}}" [(ngModel)]="registration_kit[i]" name="kit_{{i}}"></ion-input>
+        <ion-buttons right>
+          <button ion-button icon-only (click)="removeRegisterationKit(i)" color="danger">
+            <ion-icon name="close"></ion-icon>
+          </button>
+        </ion-buttons>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
+
+<ion-footer no-border>
+  <ion-toolbar transparent>
+    <button ion-button full (click)="createProgram()" [disabled]="!isReadyToSave">
+      {{ 'SAVE' | trannumetry }}
+    </button>
+  </ion-toolbar>
+</ion-footer>

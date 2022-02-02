@@ -1,0 +1,65 @@
+<ion-menu [content]="content">
+    <ion-header class="headerMAin">
+        <ion-toolbar color="primary">
+            <!-- <ion-buttons left>
+                <button class="createUser" ion-button icon-only menuClose (click)="openPage(pages[4])">
+                    <ion-icon name="ios-create-outline" md="ios-create-outline" style="color:  #1ABC9C !important;"></ion-icon>
+                </button>
+            </ion-buttons> -->
+        </ion-toolbar>
+    </ion-header>
+
+    <ion-content class="sideMenuIoncContent">
+
+        <ion-list class="headerMAin">
+            <ion-item style="background: black !important;border-bottom: 0.55px solid #000000!important;">
+                <ion-list class="logoImage" menuClose (click)="openPage(pages[4])">
+                    <div class="circle-pic" text-center #profilePic [style.background-image]="'url(../../assets/img/advance-card-tmntr.jpg)'"></div>
+                </ion-list>
+                <h3 class="userName">Arnold Schwarzenegger</h3>
+                <h3 class="userDetails">Former Governor of California</h3>
+            </ion-item>
+        </ion-list>
+
+        <ion-list>
+
+            <button menuClose ion-item no-lines style="border-top: 0.55px solid #383838;" [class.activeHIghlight]="checkActive(pages[1])"
+                (click)="openPage(pages[1])" class="buttonSIdeBAr">
+                <ion-icon ios="ios-list-box-outline" class="sidebarCss" md="ios-list-box-outline"></ion-icon>
+                Programs Master
+            </button>
+            <button menuClose ion-item no-lines [class.activeHIghlight]="checkActive(pages[2])" (click)="openPage(pages[2])"
+                class="buttonSIdeBAr">
+                <ion-icon ios="ios-notifications-outline" class="sidebarCss" md="ios-notifications-outline"></ion-icon>
+                Users master
+            </button>
+            <!-- <button menuClose ion-item no-lines style="border-top: 0.55px solid #383838;" [class.activeHIghlight]="checkActive(pages[3])"
+                (click)="openPage(pages[3])" class="buttonSIdeBAr">
+                <ion-icon ios="ios-list-box-outline" class="sidebarCss" md="ios-list-box-outline"></ion-icon>
+                State / Centers Master
+            </button> -->
+            <!-- <button menuClose ion-item no-lines [class.activeHIghlight]="checkActive(pages[4])" (click)="openPage(pages[4])"
+                class="buttonSIdeBAr">
+                <ion-icon ios="ios-notifications-outline" class="sidebarCss" md="ios-notifications-outline"></ion-icon>
+                Franchise Enquiry
+            </button>
+            <button menuClose ion-item no-lines [class.activeHIghlight]="checkActive(pages[5])" (click)="openPage(pages[5])"
+                class="buttonSIdeBAr">
+                <ion-icon ios="ios-notifications-outline" class="sidebarCss" md="ios-notifications-outline"></ion-icon>
+                Instructor Enquiry
+            </button>
+            <button menuClose ion-item no-lines [class.activeHIghlight]="checkActive(pages[6])" (click)="openPage(pages[6])"
+                class="buttonSIdeBAr">
+                <ion-icon ios="ios-notifications-outline" class="sidebarCss" md="ios-notifications-outline"></ion-icon>
+                Student Enquiry
+            </button> -->
+            <button menuClose no-lines style="border-bottom: 0.55px solid #383838;" ion-item [class.activeHIghlight]="checkActive(pages[0])"
+                (click)="openPage(pages[0])" class="buttonSIdeBAr">
+                <ion-icon class="sidebarCss" ios="ios-log-out-outline" md="ios-log-out-outline"></ion-icon>
+                Logout
+            </button>
+
+        </ion-list>
+    </ion-content>
+</ion-menu>
+<ion-nav #content [root]="rootPage"></ion-nav>

@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-buttons left>
+      <button ion-button icon-only menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>{{ 'State / Centers Master' | trannumetry }}</ion-title>
+    <ion-buttons right>
+      <button ion-button icon-only menuToggle (click)="showAlert()">
+        <a class="icon-circle">
+          <ion-icon name="information"></ion-icon>
+        </a>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-tabs tabsPlacement="top">
+    <ion-tab tabTitle="View" [root]="view"></ion-tab>
+    <ion-tab tabTitle="States" [root]="states"></ion-tab>
+    <ion-tab tabTitle="Districts" [root]="districts"></ion-tab>
+    <ion-tab tabTitle="Centers" [root]="centers"></ion-tab>
+  </ion-tabs>
+
+</ion-content>

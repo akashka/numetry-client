@@ -1,0 +1,104 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>{{ 'Instructor Enquiries' | trannumetry }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="form">
+    <ion-list>
+
+      <ion-item>
+        <ion-label floating>{{ 'Name' | trannumetry }} </ion-label>
+        <ion-input type="text" formControlName="name" disabled="true"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>{{ 'State' | trannumetry }} </ion-label>
+        <ion-select multiple="false" cancelText="Cancel" okText="Okay" formControlName="instructor_state" (ionChange)="onInstructorStateChange($event)"
+        disabled="true">
+          <ion-option value={{state._id}} *ngFor="let state of states">{{state.center_name}}</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>{{ 'District' | trannumetry }} </ion-label>
+        <ion-select multiple="false" cancelText="Cancel" okText="Okay" formControlName="instructor_district"
+          (ionChange)="onInstructorDistrictChange($event)" disabled="true">
+          <ion-option value={{district._id}} *ngFor="let district of districts">{{district.center_name}}</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>{{ 'Area' | trannumetry }} </ion-label>
+        <ion-select multiple="false" cancelText="Cancel" okText="Okay" formControlName="instructor_area" disabled="true">
+          <ion-option value={{area._id}} *ngFor="let area of areas">{{area.center_name}}</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>{{ 'Address' | trannumetry }} </ion-label>
+        <ion-textarea #myInput id="myInput" rows="2" maxLength="500" (keyup)="resize()" formControlName="address" disabled="true"></ion-textarea>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>{{ 'Pincode' | trannumetry }} </ion-label>
+        <ion-input type="number" formControlName="pincode" disabled="true"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>{{ 'Mobile No' | trannumetry }} </ion-label>
+        <ion-input type="number" formControlName="mobile_no" disabled="true"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>{{ 'Whatsapp No' | trannumetry }} </ion-label>
+        <ion-input type="number" formControlName="whatsapp_no" disabled="true"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>{{ 'Email ID' | trannumetry }} </ion-label>
+        <ion-input type="text" formControlName="email_id" disabled="true"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>{{ 'Date Of Birth' | trannumetry }}</ion-label>
+        <ion-datetime displayFormat="DD/MMM/YYYY" formControlName="dob" disabled="true"></ion-datetime>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>{{ 'Qualification' | trannumetry }}</ion-label>
+        <ion-input type="text" formControlName="qualification" disabled="true"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>{{ 'Old Organization Name' | trannumetry }}</ion-label>
+        <ion-input type="text" formControlName="old_organization_name" disabled="true"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>{{ 'Old Organization Designation' | trannumetry }}</ion-label>
+        <ion-input type="text" formControlName="old_organization_designation" disabled="true"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>{{ 'Total Experience' | trannumetry }}</ion-label>
+        <ion-input type="text" formControlName="total_experience" disabled="true"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>{{ 'Programs Interested In' | trannumetry }} </ion-label>
+        <ion-select multiple="true" cancelText="Cancel" okText="Okay" formControlName="program" disabled="true">
+          <ion-option value={{program._id}} *ngFor="let program of programmes">{{program.program_name}}</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>{{ 'Remarks' | trannumetry }}</ion-label>
+        <ion-textarea #myInput1 id="myInput1" rows="2" maxLength="5000" (keyup)="resize()" formControlName="remarks" disabled="true"></ion-textarea>
+      </ion-item>
+
+    </ion-list>
+  </form>
+
+</ion-content>

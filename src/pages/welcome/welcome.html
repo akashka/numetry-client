@@ -1,0 +1,38 @@
+<ion-content scroll="false">
+  <div class="fixed-content">
+
+    <div class="logoHeader">
+      <img alt="logo" height="60" style="position: relative" src="../assets/img/icon-512x512.png">
+    </div>
+
+    <h1 class="welcomeHeader"> &nbsp; </h1>
+
+    <form *ngIf="form" [formGroup]="form">
+      <div padding>
+        <ion-input type="email" [(ngModel)]="account.email" class="input-access-code" placeholder="Email"
+          formControlName="user_name"></ion-input>
+        <br>
+        <ion-input [type]="passwordType" [(ngModel)]="account.password" class="input-access-code" placeholder="Password"
+          formControlName="user_pass"></ion-input>
+        <br>
+        <ion-icon item-end [name]="passwordIcon" class="passwordIcon" (click)='hideShowPassword()' style="z-index:9999999;">{{passwordIcon}}
+          Password</ion-icon>
+        <br> <br>
+        <a (click)="signIn()">
+          <button ion-button block class="login" style="color:white !important;">{{ 'LOGIN' | trannumetry }}</button>
+        </a>
+      </div>
+    </form>
+
+    <div class="welcome-footer">
+      <a (click)="contactUs()"> Contact Us </a>
+      <a (click)="feedback()"> Feedback </a>
+      <a (click)="faq()"> FAQ </a>
+    </div>
+
+    <div class="reservation">
+      All Rights Reserved by Numetry India &copy; 2019
+    </div>
+
+  </div>
+</ion-content>

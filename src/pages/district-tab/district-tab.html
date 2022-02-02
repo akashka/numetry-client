@@ -1,0 +1,39 @@
+<ion-content>
+    <form [formGroup]="form">
+
+        <ion-list>
+            <ion-item>
+                <ion-label floating>{{ 'District Name' | trannumetry }} <span class="mandatory-field"> * </span>
+                </ion-label>
+                <ion-input type="text" formControlName="center_name"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label floating>{{ 'District Code' | trannumetry }} <span class="mandatory-field"> * </span>
+                </ion-label>
+                <ion-input type="text" formControlName="center_id" (ionChange)="onCodeChange($event)"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label floating>{{ 'State' | trannumetry }} <span class="mandatory-field"> * </span> </ion-label>
+                <ion-select multiple="false" cancelText="Cancel" okText="Okay" formControlName="center_parent">
+                    <ion-option *ngFor="let state of states" value={{state._id}}>{{state.center_name}}</ion-option>
+                </ion-select>
+            </ion-item>
+            <ion-item>
+                <ion-label fixed>{{ 'Active:' | trannumetry }}</ion-label>
+                <ion-toggle color="primary" formControlName="active"></ion-toggle>
+            </ion-item>
+        </ion-list>
+
+    </form>
+
+</ion-content>
+
+<ion-footer no-border>
+    <p style="color:red;" *ngIf="isDuplicate"> District Code already exists for any State or Districts or Center.
+        Please try again with new District Code. </p>
+    <ion-toolbar transparent>
+        <button ion-button full (click)="createState()" ng-disabled="!isReadyToSave || isDuplicate">
+            {{ 'SAVE' | trannumetry }}
+        </button>
+    </ion-toolbar>
+</ion-footer>

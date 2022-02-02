@@ -1,0 +1,111 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>{{ 'Student Enquiries' | trannumetry }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="form">
+    <ion-list>
+
+      <ion-item>
+        <ion-label floating>{{ 'Name' | trannumetry }} </ion-label>
+        <ion-input type="text" formControlName="name" disabled="true"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>{{ 'State' | trannumetry }} </ion-label>
+        <ion-select multiple="false" cancelText="Cancel" okText="Okay" formControlName="state" (ionChange)="onStateChange($event)"
+        disabled="true">
+          <ion-option value={{state._id}} *ngFor="let state of states">{{state.center_name}}</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>{{ 'District' | trannumetry }} </ion-label>
+        <ion-select multiple="false" cancelText="Cancel" okText="Okay" formControlName="district"
+          (ionChange)="onDistrictChange($event)" disabled="true">
+          <ion-option value={{district._id}} *ngFor="let district of districts">{{district.center_name}}</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>{{ 'Area' | trannumetry }} </ion-label>
+        <ion-select multiple="false" cancelText="Cancel" okText="Okay" formControlName="area" disabled="true">
+          <ion-option value={{area._id}} *ngFor="let area of areas">{{area.center_name}}</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>{{ 'Address' | trannumetry }} </ion-label>
+        <ion-textarea #myInput id="myInput" rows="2" maxLength="500" (keyup)="resize()" formControlName="address" disabled="true"></ion-textarea>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>{{ 'Mobile No' | trannumetry }} </ion-label>
+        <ion-input type="number" formControlName="mobile_no" disabled="true"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>{{ 'Whatsapp No' | trannumetry }} </ion-label>
+        <ion-input type="number" formControlName="whatsapp_no" disabled="true"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>{{ 'Email ID' | trannumetry }} </ion-label>
+        <ion-input type="text" formControlName="email_id" disabled="true"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>{{ 'Date Of Birth' | trannumetry }}</ion-label>
+        <ion-datetime displayFormat="DD/MMM/YYYY" formControlName="dob" disabled="true"></ion-datetime>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>{{ 'Parent Name' | trannumetry }}</ion-label>
+        <ion-input type="text" formControlName="parent_name" disabled="true"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>{{ 'School Name' | trannumetry }}</ion-label>
+        <ion-input type="text" formControlName="school_name" disabled="true"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>{{ 'School Address' | trannumetry }}</ion-label>
+        <ion-input type="text" formControlName="school_address" disabled="true"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>{{ 'Grade' | trannumetry }}</ion-label>
+        <ion-input type="number" formControlName="grade" disabled="true"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>{{ 'Programs Interested In' | trannumetry }} </ion-label>
+        <ion-select multiple="true" cancelText="Cancel" okText="Okay" formControlName="program" disabled="true">
+          <ion-option value={{program._id}} *ngFor="let program of programmes">{{program.program_name}}</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>{{ 'Best Time To Contact' | trannumetry }}</ion-label>
+        <ion-input type="text" formControlName="contact_time" disabled="true"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>{{ 'Referral' | trannumetry }}</ion-label>
+        <ion-select multiple="false" cancelText="Cancel" okText="Okay" formControlName="referral" disabled="true">
+          <ion-option value={{referral}} *ngFor="let referral of referralOptions">{{referral}}</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>{{ 'Remarks' | trannumetry }}</ion-label>
+        <ion-textarea #myInput1 id="myInput1" rows="2" maxLength="5000" (keyup)="resize()" formControlName="remarks" disabled="true"></ion-textarea>
+      </ion-item>
+
+    </ion-list>
+  </form>
+
+</ion-content>

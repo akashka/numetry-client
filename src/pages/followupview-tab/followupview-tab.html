@@ -1,0 +1,23 @@
+<ion-content>
+
+    <ion-card *ngFor="let card of followups" style="top: 0;">
+        <ion-item>
+            <ion-avatar item-left>
+                <img src="{{findUser(card.user, 'profile_pic')}}" />
+            </ion-avatar>
+            <h2>{{findUser(card.user, 'name')}}</h2>
+            <p>{{card.dated | date: 'dd/MMM/yyyy H:mm'}}</p>
+        </ion-item>
+        <ion-card-content>
+            <p style="border-bottom: none;" >{{card.comment}}</p>
+        </ion-card-content>
+    </ion-card>
+
+    <ion-card *ngIf="followups.length < 1" style="top: 0;">
+        <ion-card-content>
+            We see that there are no followup's yet for this Enquiry. <br>
+            Do a new Enquiry by going on Create on top.
+        </ion-card-content>
+    </ion-card>
+
+</ion-content>

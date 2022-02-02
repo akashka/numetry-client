@@ -1,0 +1,70 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-buttons left>
+      <button ion-button icon-only menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>{{ 'Franchise List' | trannumetry }}</ion-title>
+    <ion-buttons right>
+      <button ion-button icon-only (click)="add()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-searchbar (ionInput)="getItems($event)" placeholder="{{ 'Search Franchise' | trannumetry }}"></ion-searchbar>
+
+  <ion-list>
+    <ion-item-sliding *ngFor="let item of currentItems" #slidingItem>
+
+      <ion-item (press)="pressEvent($event)" class="listing-item">
+        <h2> {{item.name}} </h2>
+        <h3> <b> Franchise Type: </b> {{item.franchise_type}}</h3>
+        <p> <b> State: </b> {{findLocation(item.franchise_state, 'state', item.franchise_type)}} </p>
+        <p *ngIf="item.franchise_district != ''"> <b> District: </b> {{findLocation(item.franchise_district,
+          'district', item.franchise_type)}} </p>
+        <p *ngIf="item.franchise_area != ''"> <b> Area: </b> {{findLocation(item.franchise_area, 'unit',
+          item.franchise_type)}} </p>
+        <p> <b> Enquired By: </b> {{findUser(item.enquiry_by)}} </p>
+        <p>
+          <b> Status: </b>
+          <span [class.franchise-enquiry]="item.status == 'enquiry'" [class.franchise-reject]="item.status == 'reject'"
+            [class.franchise-confirm]="item.status == 'confirm'"> {{item.status}} </span>
+        </p>
+      </ion-item>
+
+      <ion-item-options side="right" class="listing-btn">
+        <button ion-button color="info" (click)="view(item, slidingItem)">
+          <ion-icon name="eye"></ion-icon> View
+        </button>
+        <button ion-button color="danger" (click)="reject(item, slidingItem)" *ngIf="user && user.role == 'admin' && item.status == 'enquiry'">
+          <ion-icon name="thumbs-down"></ion-icon> Reject
+        </button>
+        <button ion-button color="success" (click)="confirm(item, slidingItem)" *ngIf="user && user.role == 'admin' && item.status == 'enquiry'">
+          <ion-icon name="thumbs-up"></ion-icon> Confirm
+        </button>
+        <button ion-button color="success" (click)="confirm(item, slidingItem)" *ngIf="user && user.role == 'admin' && item.status == 'confirm'">
+          <ion-icon name="cloud-upload"></ion-icon> Documents
+        </button>
+      </ion-item-options>
+
+      <ion-item-options side="left" class="listing-btn">
+        <button ion-button color="primary" (click)="contact(item, slidingItem)">
+          <ion-icon name="call"></ion-icon> Contact
+        </button>
+        <button ion-button color="warning" (click)="edit(item, slidingItem)">
+          <ion-icon name="create"></ion-icon> Edit
+        </button>
+        <button ion-button color="success" (click)="followup(item, slidingItem)" *ngIf="item.status == 'enquiry'">
+          <ion-icon name="quote"></ion-icon> Followup
+        </button>
+      </ion-item-options>
+
+    </ion-item-sliding>
+  </ion-list>
+
+</ion-content>

@@ -1,0 +1,62 @@
+<ion-content>
+  <div class="fixed-content">
+
+    <form *ngIf="form" [formGroup]="form" (ngSubmit)="saveProfile()">
+      
+      <ion-list>
+        <ion-item>
+          <ion-label floating class="label_here">{{ 'User Name' | trannumetry }} :</ion-label>
+          <ion-input class="inputFields" type="text" formControlName="user_name" (keyup)="changedSmtng()" disabled="{{isDisabled}}"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label floating class="label_here">{{ 'Name' | trannumetry }} <span class="mandatory-field"> * </span> </ion-label>
+          <ion-input class="inputFields" type="text" formControlName="name" (keyup)="changedSmtng()" disabled="{{isDisabled}}"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label floating class="label_here">{{ 'Phone No' | trannumetry }} <span class="mandatory-field"> * </span> </ion-label>
+          <ion-input class="inputFields" type="number" formControlName="phone_no" (keyup)="changedSmtng()" disabled="{{isDisabled}}"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label floating class="label_here">{{ 'Whatsapp No' | trannumetry }} </ion-label>
+          <ion-input class="inputFields" type="number" formControlName="whatsapp_no" (keyup)="changedSmtng()" disabled="{{isDisabled}}"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label floating class="label_here">{{ 'Date Of Birth' | trannumetry }} <span class="mandatory-field"> * </span> </ion-label>
+          <ion-datetime class="inputFields" displayFormat="DD/MMM/YYYY" formControlName="dob" (ionChange)="changedSmtng()" disabled="{{isDisabled}}"></ion-datetime>
+        </ion-item>
+  
+        <ion-item>
+          <ion-label floating>{{ 'Gender' | trannumetry }} <span class="mandatory-field"> * </span> </ion-label>
+          <ion-select class="inputFields" formControlName="gender" (ionChange)="changedSmtng()" disabled="{{isDisabled}}">
+            <ion-option value="female">Female</ion-option>
+            <ion-option value="male">Male</ion-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-label floating class="label_here">{{ 'Email' | trannumetry }} <span class="mandatory-field"> * </span> </ion-label>
+          <ion-input class="inputFields" type="email" formControlName="email" (keyup)="changedSmtng()" disabled="{{isDisabled}}"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label floating class="label_here">{{ 'Password' | trannumetry }} <span class="mandatory-field"> * </span> </ion-label>
+          <ion-input class="inputFields" type="password" formControlName="password" (keyup)="changedSmtng()" disabled="{{isDisabled}}"></ion-input>
+        </ion-item>
+
+      </ion-list>
+
+    </form>
+  </div>
+</ion-content>
+ 
+<ion-footer no-border>
+  <ion-toolbar transparent>
+    <button ion-button full (click)="editProfile()" class="editSaveToggleBtn">
+      {{ caption_name | trannumetry }}
+    </button>
+  </ion-toolbar>
+</ion-footer>

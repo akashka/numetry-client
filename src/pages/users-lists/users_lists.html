@@ -1,0 +1,55 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-buttons left>
+      <button ion-button icon-only menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>{{ 'Users Lists' | trannumetry }}</ion-title>
+    <ion-buttons right>
+      <button ion-button icon-only (click)="saveAsCsv()">
+        <ion-icon name="download"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-buttons right>
+      <button ion-button icon-only (click)="addItem()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-searchbar (ionInput)="getItems($event)" placeholder="{{ 'Search Users' | trannumetry }}"></ion-searchbar>
+  <ion-list>
+    <ion-item-sliding *ngFor="let item of currentItems" #slidingItem>
+
+      <ion-item (press)="pressEvent($event)" class="listing-item">
+        <ion-avatar item-start>
+          <img src={{findImage(item.profile_pic)}}>
+        </ion-avatar>
+        <h2>{{item.name}}</h2>
+        <h3>{{findRole(item.role)}}</h3>
+        <p *ngIf="item.user_state != ''"> <b> State: </b> {{findLocation(item.user_state)}}</p>
+        <p *ngIf="item.user_district != ''"> <b> District: </b> {{findLocation(item.user_district)}}</p>
+        <p *ngIf="item.user_center != ''"> <b> Center: </b> {{findLocation(item.user_center)}}</p>
+      </ion-item>
+
+      <ion-item-options side="left" class="listing-btn">
+        <button ion-button color="primary" (click)="contact(item, slidingItem)" icon-start>
+          <ion-icon name="call"></ion-icon> Contact
+        </button>
+      </ion-item-options>
+
+      <ion-item-options side="right" class="listing-btn">
+        <button ion-button color="info" (click)="openItem(item)" icon-start>
+          <ion-icon name="ios-more"></ion-icon> View
+        </button>
+        <button ion-button color="warning" (click)="editItem(item,slidingItem)" icon-start>
+          <ion-icon name="create"></ion-icon> Edit
+        </button>
+      </ion-item-options>
+
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>

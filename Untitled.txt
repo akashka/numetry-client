@@ -1,0 +1,28 @@
+*** Login:
+- Reset Password
+
+*** Franchise Enquiry:
+- Franchise confirm page needs to be created
+
+*** HomePage:
+
+COMMON:
+Download & Mail Options
+Images
+
+*** Program:                                                 Admin Only
+*** State:                                                   Admin Only
+*** Instructor Enquiry:                                      Admin, Master, District, Center
+*** Student Enquiry:                                         Admin, Master, District, Center
+*** Users:                                                   Admin Only
+
+
+
+
+sudo ANDROID_HOME="/tools/bin" ionic cordova build --release --verbose android
+
+// sudo keytool -genkey -v -keystore numetryByNumetry.keystore -alias numetryByNumetry -keyalg RSA -keysize 2048 -validity 10000
+
+sudo jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore numetryByNumetry.keystore /home/akash/Code/akash/numetry/platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk numetryByNumetry
+
+sudo zipalign -v -p 4 /home/akash/Code/akash/numetry/platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk numetryByNumetry.apk

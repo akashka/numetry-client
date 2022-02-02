@@ -1,0 +1,89 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>{{ 'User Details' | trannumetry }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <form>
+    <ion-list>
+
+      <ion-item>
+        <ion-label floating>{{ 'Full Name' | trannumetry }} <span class="mandatory-field"> * </span> </ion-label>
+        <ion-input type="text" [(ngModel)]="account.name" name="name" disabled="true"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>{{ 'User Name' | trannumetry }} <span class="mandatory-field"> * </span> </ion-label>
+        <ion-input type="text" [(ngModel)]="account.user_name" name="user_name" disabled="true"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>{{ 'Phone No' | trannumetry }} <span class="mandatory-field"> * </span> </ion-label>
+        <ion-input type="number" [(ngModel)]="account.phone_no" name="phone_no" disabled="true"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>{{ 'Whatsapp No' | trannumetry }} <span class="mandatory-field"> * </span> </ion-label>
+        <ion-input type="number" [(ngModel)]="account.whatsapp_no" name="whatsapp_no" disabled="true"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>{{ 'Email' | trannumetry }} <span class="mandatory-field"> * </span> </ion-label>
+        <ion-input type="email" [(ngModel)]="account.email" name="email" disabled="true"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>{{ 'Date Of Birth' | trannumetry }} <span class="mandatory-field"> * </span> </ion-label>
+        <ion-datetime displayFormat="DD/MMM/YYYY" [(ngModel)]="account.dob" name="dob" disabled="true"></ion-datetime>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>{{ 'Gender' | trannumetry }} <span class="mandatory-field"> * </span> </ion-label>
+        <ion-select [(ngModel)]="account.gender" name="gender" disabled="true">
+          <ion-option value="female">Female</ion-option>
+          <ion-option value="male">Male</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>{{ 'Role' | trannumetry }} <span class="mandatory-field"> * </span> </ion-label>
+        <ion-select [(ngModel)]="account.role" name="role" disabled="true">
+          <ion-option value="admin">Admin</ion-option>
+          <ion-option value="master">Master Franchise</ion-option>
+          <ion-option value="district">District Franchise</ion-option>
+          <ion-option value="unit">Unit Franchise</ion-option>
+          <ion-option value="instructor">Instructor</ion-option>
+          <ion-option value="student">Student</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item *ngIf="account.role != 'admin'">
+        <ion-label floating>{{ 'State' | trannumetry }} <span class="mandatory-field"> * </span> </ion-label>
+        <ion-select multiple="false" cancelText="Cancel" okText="Okay" [(ngModel)]="account.user_state" name="user_state" disabled="true">
+          <ion-option value={{state._id}} *ngFor="let state of states">{{state.center_name}}</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item *ngIf="account.role != 'master' && account.role != 'admin'">
+        <ion-label floating>{{ 'District' | trannumetry }} <span class="mandatory-field"> * </span> </ion-label>
+        <ion-select multiple="false" cancelText="Cancel" okText="Okay" [(ngModel)]="account.user_district" name="user_district" disabled="true">
+          <ion-option value={{district._id}} *ngFor="let district of districts">{{district.center_name}}</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item *ngIf="account.role != 'master' && account.role != 'admin' && account.role != 'district'">
+        <ion-label floating>{{ 'Area' | trannumetry }} <span class="mandatory-field"> * </span> </ion-label>
+        <ion-select multiple="false" cancelText="Cancel" okText="Okay" [(ngModel)]="account.user_center" name="user_center" disabled="true">
+          <ion-option value={{area._id}} *ngFor="let area of areas">{{area.center_name}}</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>{{ 'Active:' | trannumetry }} <span class="mandatory-field"> * </span> </ion-label>
+        <ion-toggle color="primary" [(ngModel)]="account.active" name="active" disabled="true"></ion-toggle>
+      </ion-item>
+
+    </ion-list>
+  </form>
+</ion-content>

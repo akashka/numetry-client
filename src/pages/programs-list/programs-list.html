@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-buttons left>
+      <button ion-button icon-only menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>{{ 'Programs Lists' | trannumetry }}</ion-title>
+    <ion-buttons right>
+      <button ion-button icon-only (click)="saveAsCsv()">
+        <ion-icon name="download"></ion-icon>
+      </button>
+    </ion-buttons>  
+    <ion-buttons right>
+      <button ion-button icon-only (click)="addProgram()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content> 
+
+  <ion-searchbar (ionInput)="getItems($event)" [(ngModel)]="input_search" placeholder="{{ 'Search Programs' | trannumetry }}"></ion-searchbar>
+
+  <ion-list>
+    <ion-item-sliding *ngFor="let item of currentItems" #slidingItem>
+
+      <ion-item (press)="pressEvent($event)" class="listing-item">
+        <h2> {{item.program_name}} </h2>
+        <h3> <b> Code: </b> {{item.program_code}}</h3>
+        <p> <b> No Of Sessions: </b> {{item.no_of_sessions}} </p>
+        <p> <b> Months Per Level: </b> {{item.months_per_level}} </p>
+        <p> <b> Total Levels: </b> {{item.total_levels}} </p>
+      </ion-item>
+
+      <ion-item-options side="right" class="listing-btn">
+        <button ion-button color="info" (click)="viewProgram(item, slidingItem)">
+          <ion-icon name="ios-more"></ion-icon> View
+        </button>
+        <button ion-button color="warning" icon-start (click)="editProgram(item, slidingItem)">
+          <ion-icon name="create"></ion-icon> Edit
+        </button>
+      </ion-item-options>
+
+    </ion-item-sliding>
+  </ion-list>
+
+</ion-content>

@@ -1,0 +1,121 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>{{ 'Student Enquiries' | trannumetry }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="form">
+    <ion-list>
+
+      <ion-item>
+        <ion-label floating>{{ 'Name' | trannumetry }} <span class="mandatory-field"> * </span> </ion-label>
+        <ion-input type="text" formControlName="name"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>{{ 'State' | trannumetry }} <span class="mandatory-field"> * </span> </ion-label>
+        <ion-select multiple="false" cancelText="Cancel" okText="Okay" formControlName="state" (ionChange)="onStateChange($event)"
+          [disabled]="isStateDisabled">
+          <ion-option value={{state._id}} *ngFor="let state of states">{{state.center_name}}</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>{{ 'District' | trannumetry }} <span class="mandatory-field"> * </span> </ion-label>
+        <ion-select multiple="false" cancelText="Cancel" okText="Okay" formControlName="district"
+          (ionChange)="onDistrictChange($event)" [disabled]="isDistrictDisabled">
+          <ion-option value={{district._id}} *ngFor="let district of districts">{{district.center_name}}</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>{{ 'Area' | trannumetry }} <span class="mandatory-field"> * </span> </ion-label>
+        <ion-select multiple="false" cancelText="Cancel" okText="Okay" formControlName="area" [disabled]="isAreaDisabled">
+          <ion-option value={{area._id}} *ngFor="let area of areas">{{area.center_name}}</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>{{ 'Address' | trannumetry }} <span class="mandatory-field"> * </span> </ion-label>
+        <ion-textarea #myInput id="myInput" rows="2" maxLength="500" (keyup)="resize()" formControlName="address"></ion-textarea>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>{{ 'Mobile No' | trannumetry }} <span class="mandatory-field"> * </span> </ion-label>
+        <ion-input type="number" formControlName="mobile_no" (ionChange)="onPhoneOrEmailChange($event)"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>{{ 'Whatsapp No' | trannumetry }} </ion-label>
+        <ion-input type="number" formControlName="whatsapp_no" (ionChange)="onPhoneOrEmailChange($event)"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>{{ 'Email ID' | trannumetry }} <span class="mandatory-field"> * </span> </ion-label>
+        <ion-input type="text" formControlName="email_id" (ionChange)="onPhoneOrEmailChange($event)"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>{{ 'Date Of Birth' | trannumetry }}</ion-label>
+        <ion-datetime displayFormat="DD/MMM/YYYY" formControlName="dob"></ion-datetime>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>{{ 'Parent Name' | trannumetry }}</ion-label>
+        <ion-input type="text" formControlName="parent_name"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>{{ 'School Name' | trannumetry }}</ion-label>
+        <ion-input type="text" formControlName="school_name"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>{{ 'School Address' | trannumetry }}</ion-label>
+        <ion-input type="text" formControlName="school_address"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>{{ 'Grade' | trannumetry }}</ion-label>
+        <ion-input type="number" formControlName="grade"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>{{ 'Programs Interested In' | trannumetry }} </ion-label>
+        <ion-select multiple="true" cancelText="Cancel" okText="Okay" formControlName="program">
+          <ion-option value={{program._id}} *ngFor="let program of programmes">{{program.program_name}}</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>{{ 'Best Time To Contact' | trannumetry }}</ion-label>
+        <ion-input type="text" formControlName="contact_time"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>{{ 'Referral' | trannumetry }}</ion-label>
+        <ion-select multiple="false" cancelText="Cancel" okText="Okay" formControlName="referral">
+          <ion-option value={{referral}} *ngFor="let referral of referralOptions">{{referral}}</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>{{ 'Remarks' | trannumetry }}</ion-label>
+        <ion-textarea #myInput1 id="myInput1" rows="2" maxLength="5000" (keyup)="resize()" formControlName="remarks"></ion-textarea>
+      </ion-item>
+
+    </ion-list>
+  </form>
+
+</ion-content>
+
+<ion-footer no-border>
+  <p style="color: red;" *ngIf="counter > 0">There already exists an Enquiry with same details from same or different
+    center. Hence, cannot save it. Please contact Head Office.</p>
+  <ion-toolbar transparent>
+    <button ion-button full (click)="save()" [disabled]="!isReadyToSave || counter > 0">
+      {{ 'SAVE' | trannumetry }}
+    </button>
+  </ion-toolbar>
+</ion-footer>

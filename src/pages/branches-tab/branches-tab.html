@@ -1,0 +1,46 @@
+<ion-content class="branchtab">
+
+    <ion-list>
+        <div *ngFor="let branch of branches">
+
+            <ion-item class="item-stable">
+                <ion-icon name="arrow-dropright" *ngIf="branch.hide" (click)="onSelect(branch)"></ion-icon>
+                <ion-icon name="arrow-dropdown" *ngIf="!branch.hide" (click)="onSelect(branch)"></ion-icon>
+                <span *ngIf="branch.active" style="color:green;" (click)="onSelect(branch)"> {{branch.center_name}}
+                    ({{branch.center_id}}) </span>
+                <span *ngIf="!branch.active" style="color:red;" (click)="onSelect(branch)"> {{branch.center_name}}
+                    ({{branch.center_id}}) </span>
+                <span style="color:blue;text-decoration:underline;float:right;" (click)="edit(branch)"> Edit </span>
+            </ion-item>
+
+            <div *ngIf="!branch.hide" style="padding-left: 20px;">
+                <div *ngFor="let bran of branch.branches">
+
+                    <ion-item class="item-stable">
+                        <ion-icon name="arrow-dropright" *ngIf="bran.hide" (click)="onSubSelect(bran)"></ion-icon>
+                        <ion-icon name="arrow-dropdown" *ngIf="!bran.hide" (click)="onSubSelect(bran)"></ion-icon>
+                        <span *ngIf="bran.active" style="color: green;" (click)="onSubSelect(bran)">
+                            {{bran.center_name}} ({{bran.center_id}}) </span>
+                        <span *ngIf="!bran.active" style="color: red;" (click)="onSubSelect(bran)">
+                            {{bran.center_name}} ({{bran.center_id}}) </span>
+                        <span style="color:blue;text-decoration:underline;float:right;" (click)="edit(bran)"> Edit </span>
+                    </ion-item>
+
+                    <div *ngIf="!bran.hide" style="padding-left: 40px;">
+                        <div *ngFor="let b of bran.branches">
+                            <ion-item class="item-stable">
+                                <span *ngIf="b.active" style="color: green;"> {{b.center_name}} ({{b.center_id}})
+                                </span>
+                                <span *ngIf="!b.active" style="color: red;"> {{b.center_name}} ({{b.center_id}}) </span>
+                                <span style="color:blue;text-decoration:underline;float:right;" (click)="edit(b)"> Edit </span>
+                            </ion-item>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </ion-list>
+
+</ion-content>

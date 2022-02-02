@@ -1,0 +1,13 @@
+<ion-content>
+    <form [formGroup]="form">
+        <ion-textarea #myInput id="myInput" rows="17" maxLength="5000" formControlName="comment" placeholder="{{ 'Remarks' | trannumetry }}"></ion-textarea>
+    </form>
+</ion-content>
+
+<ion-footer no-border>
+    <ion-toolbar transparent>
+        <button ion-button full (click)="save()" [disabled]="!isReadyToSave">
+            {{ 'SAVE' | trannumetry }}
+        </button>
+    </ion-toolbar>
+</ion-footer>

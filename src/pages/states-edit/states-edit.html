@@ -1,0 +1,28 @@
+<ion-content>
+    <form [formGroup]="form">
+
+        <ion-list>
+            <ion-item>
+                <ion-label floating>{{ 'State Name' | trannumetry }} <span class="mandatory-field"> * </span> </ion-label>
+                <ion-input type="text" formControlName="center_name"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label floating>{{ 'State Code' | trannumetry }} <span class="mandatory-field"> * </span> </ion-label>
+                <ion-input type="text" formControlName="center_id" disabled="true"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label fixed>{{ 'Active:' | trannumetry }} </ion-label>
+                <ion-toggle color="primary" formControlName="active"></ion-toggle>
+            </ion-item>
+        </ion-list>
+
+    </form>
+</ion-content>
+
+<ion-footer no-border>
+    <ion-toolbar transparent>
+        <button ion-button full (click)="createState()" ng-disabled="!isReadyToSave">
+            {{ 'SAVE' | trannumetry }}
+        </button>
+    </ion-toolbar>
+</ion-footer>

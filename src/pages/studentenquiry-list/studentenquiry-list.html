@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-buttons left>
+      <button ion-button icon-only menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>{{ 'Student List' | trannumetry }}</ion-title>
+    <ion-buttons right>
+      <button ion-button icon-only (click)="add()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-searchbar (ionInput)="getItems($event)" placeholder="{{ 'Search Student' | trannumetry }}"></ion-searchbar>
+
+  <ion-list>
+    <ion-item-sliding *ngFor="let item of currentItems" #slidingItem>
+
+      <ion-item (press)="pressEvent($event)" class="listing-item">
+        <h2> {{item.name}} </h2>
+        <p> <b> State: </b> {{findLocation(item.state)}} </p>
+        <p> <b> District: </b> {{findLocation(item.district)}} </p>
+        <p> <b> Area: </b> {{findLocation(item.area)}} </p>
+        <p> <b> Enquired By: </b> {{findUser(item.enquiry_by)}} </p>
+        <p>
+          <b> Status: </b>
+          <span [class.student-enquiry]="item.status == 'enquiry'" [class.student-reject]="item.status == 'reject'"
+            [class.student-confirm]="item.status == 'confirm'"> {{item.status}} </span>
+        </p>
+      </ion-item>
+
+      <ion-item-options side="right" class="listing-btn">
+        <button ion-button color="info" (click)="view(item, slidingItem)">
+          <ion-icon name="eye"></ion-icon> View
+        </button>
+        <button ion-button color="danger" (click)="reject(item, slidingItem)" *ngIf="item.status == 'enquiry'">
+          <ion-icon name="thumbs-down"></ion-icon> Reject
+        </button>
+        <button ion-button color="success" (click)="confirm(item, slidingItem)" *ngIf="item.status == 'enquiry'">
+          <ion-icon name="thumbs-up"></ion-icon> Confirm
+        </button>
+      </ion-item-options>
+
+      <ion-item-options side="left" class="listing-btn">
+        <button ion-button color="primary" (click)="contact(item, slidingItem)">
+          <ion-icon name="call"></ion-icon> Call
+        </button>
+        <button ion-button color="warning" (click)="edit(item, slidingItem)">
+          <ion-icon name="create"></ion-icon> Edit
+        </button>
+      </ion-item-options>
+
+    </ion-item-sliding>
+  </ion-list>
+
+</ion-content>

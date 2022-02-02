@@ -1,0 +1,22 @@
+.item-toggle .input-wrapper {
+    max-width: 80px;
+}
+
+.details-info ion-label, .item-toggle .input-wrapper{
+    font-weight: bold;
+}
+
+.program-details-info .input-wrapper {
+    border-bottom: 1px solid black;
+}
+
+.program-details-info ion-label{
+    min-width: 125px;
+    font-weight: bold;
+}
+
+.program-details-info ion-input {
+    border-bottom: none;
+    padding-top: 10px;
+    font-weight: bolder;
+}

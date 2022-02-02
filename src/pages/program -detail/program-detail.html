@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>{{ 'View Program' | trannumetry }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="form">
+    <ion-list class="details-info program-details-info">
+      <ion-item>
+        <ion-label>{{ 'Program Name:' | trannumetry }}</ion-label>
+        <ion-input type="text" formControlName="program_name" disabled="true"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>{{ 'Program Code:' | trannumetry }}</ion-label>
+        <ion-input type="text" formControlName="program_code" disabled="true"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>{{ 'No Of Sessions:' | trannumetry }}</ion-label>
+        <ion-input type="number" formControlName="no_of_sessions"
+          disabled="true"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>{{ 'Months Per Level:' | trannumetry }}</ion-label>
+        <ion-input type="number" formControlName="months_per_level"
+          disabled="true"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>{{ 'Total Levels:' | trannumetry }}</ion-label>
+        <ion-input type="number" formControlName="total_levels" disabled="true"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>{{ 'Active:' | trannumetry }}</ion-label>
+        <ion-input type="text" formControlName="active" disabled="true"></ion-input>
+      </ion-item>
+    </ion-list>
+  </form>
+
+  <ion-item>
+    <h2> {{ 'Registeration Kit:' | trannumetry }} </h2>
+  </ion-item>
+
+  <ion-item *ngFor="let item of registration_kit; let i = index">
+    <ion-input type="text" placeholder="Kit {{i}}" [(ngModel)]="registration_kit[i]" name="kit_{{i}}" disabled="true"></ion-input>
+  </ion-item>
+
+</ion-content>

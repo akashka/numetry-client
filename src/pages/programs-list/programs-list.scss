@@ -1,0 +1,62 @@
+.listing-item {
+    margin-bottom: 6px;
+    margin-top: 6px;
+    box-shadow: 0 2px 2px 0 #bdbdbd, 0 3px 1px -2px #bdbdbd, 0 1px 5px 0 #bdbdbd;
+    border-radius: 10px;
+}
+
+.listing-item .item-inner {
+    border: none !important;
+}
+
+.listing-btn {
+    border-radius: 10px !important;
+}
+
+.listing-btn button {
+    margin-bottom: 10px !important;
+    margin-top: 10px !important;
+    box-shadow: 0 2px 2px 0 #bdbdbd, 0 3px 1px -2px #bdbdbd, 0 1px 5px 0 #bdbdbd !important;
+    height: 85% !important;
+    min-width: 75px;
+}
+
+.button-md-danger {
+    color: #fff;
+    background-color: #d9534f;
+    border-color: #d43f3a;
+}
+
+.button-md-warning {
+    color: #fff;
+    background-color: #f0ad4e;
+    border-color: #eea236;
+}
+
+.button-md-default {
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;
+}
+
+.button-md-primary {
+    color: #fff;
+    background-color: #428bca;
+    border-color: #357ebd;
+}
+
+.button-md-success {
+    color: #fff;
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+}
+
+.button-md-info {
+    color: #fff;
+    background-color: #5bc0de;
+    border-color: #46b8da;
+}
+
+ion-searchbar {
+    background: #4093b9 !important;
+}
